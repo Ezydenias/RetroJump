@@ -7,54 +7,98 @@ public class EzyScript : MonoBehaviour
     Animator animator;
     int jumpHash = Animator.StringToHash("Jump");
     int doubleJumpHash = Animator.StringToHash("DoubleJump");
-    int groundedHash = Animator.StringToHash("GroundedTotally");
-    private bool Jumped = false;        //checks if character jumps for doublejump animation
-    public float distToGrounded = 15.0f;
+    int fallingHash = Animator.StringToHash("Falls");
+    int groundedHash = Animator.StringToHash("Grounded");
+    public float distToGrounded = 15.1f;
     public LayerMask ground;
-    Transform tr;
+
+    private bool falls=false;
+    private bool Jumped = false; //checks if character jumps for doublejump animation
+    private bool doublejumped = false;
+    public float raisingDistance;
+    private Vector3 oldPosition;
 
 
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
-        tr = transform;
+        oldPosition = transform.position;
     }
 
     //checks if character is grounded
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGrounded);
+        return Physics.Raycast(transform.position, Vector3.down, distToGrounded, ground);
+    }
+
+    bool IsFalling()
+    {
+        
+        if ((transform.position.y - oldPosition.y) < -0.3)
+        {
+            oldPosition = transform.position;
+            if (!falls)
+            {
+                animator.SetTrigger(fallingHash);
+                falls = true;
+            }
+            return true;
+        }
+        oldPosition = transform.position;
+        return false;
     }
 
     void LateUpdate()
     {
-        if ((IsGrounded()) && Jumped)
+    }
+
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger(groundedHash);
-            Jumped = false;
+            if (Jumped == false) //if character doesn't jump, it jumps
+            {
+                animator.SetTrigger(jumpHash);
+                Jumped = true;
+                //falls = false;
+            }
+            else //if character jumped, performed the doublejump animation
+            {
+                animator.SetTrigger(doubleJumpHash);
+               
+                //falls = false;
+            }
         }
     }
+
 
 // Update is called once per frame
     void Update()
     {
+        System.Console.WriteLine(raisingDistance);
         float move = Input.GetAxis("Vertical");
         animator.SetFloat("Speed", move);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!IsFalling())
         {
-            if (Jumped == false)        //if character doesn't jump, it jumps
+            jump();
+            
+        }
+        else
+        {
+            if (IsGrounded())
             {
-                animator.SetTrigger(jumpHash);
-                animator.SetBool("Grounded", false);
-                Jumped = true;
+                if (falls || Jumped)
+                {
+                    animator.SetTrigger(groundedHash);
+                    falls = false;
+                }
+                Jumped = false;
+                
             }
-            else                        //if character jumped, performed the doublejump animation
-            {  
-                animator.SetTrigger(doubleJumpHash);
-                //Jumped = false;
-            }
+           
+
         }
     }
 }
