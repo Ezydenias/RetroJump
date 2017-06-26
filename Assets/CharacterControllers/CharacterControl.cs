@@ -54,7 +54,8 @@ public class CharacterControl : MonoBehaviour
 
     bool doubleJumpAble()
     {
-        return Physics.Raycast(transform.position, Vector3.down, moveSetting.doubleJumpDistToGrounded, moveSetting.ground);
+        return Physics.Raycast(transform.position, Vector3.down, moveSetting.doubleJumpDistToGrounded,
+            moveSetting.ground);
     }
 
     void Start()
@@ -125,11 +126,11 @@ public class CharacterControl : MonoBehaviour
             doubleJump = true;
             velocity.y = 0;
         }
-        else if (jumpInput > 0 && Grounded() == false && doubleJump&&doubleJumpAble()==false)
-        {   
+        else if (jumpInput > 0 && Grounded() == false && doubleJump && doubleJumpAble() == false)
+        {
             //double jump
             doubleJump = false;
-            velocity.y = moveSetting.jumpVel;
+            velocity.y = 2*moveSetting.jumpVel;
         }
         else
         {
