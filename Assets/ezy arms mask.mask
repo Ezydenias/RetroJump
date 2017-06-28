@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ezy arms mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Body
+    m_Weight: 1
+  - m_Path: Eyes
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l/potoe_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l/ptoe_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l/stoe_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l/thumbtoe_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/foot_l/thumbtoe_l/thumbtoe_001_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/helpbonefootback_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_l/lowerleg_l/helpbonefootdown_l
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r/potoe_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r/ptoe_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r/stoe_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r/thumbtoe_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/foot_r/thumbtoe_r/thumbtoe_001_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/helpbonefootback_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/core_001/upperleg_r/lowerleg_r/helpbonefootdown_r
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/spine
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/ear_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/ear_l/ear_001_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/ear_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/ear_r/ear_001_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/eye_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/eye_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/jaw
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/titzel_down_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/titzel_down_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/titzel_up_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/head/titzel_up_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/helpboneshoulderfront_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/helpboneshoulderfront_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/shoulderhelpboneback_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/throat/shoulderhelpboneback_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pinky_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pinky_l/pinky_002_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pinky_l/pinky_002_l/pinky_001_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pointy_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pointy_l/pointy_002_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/pointy_l/pointy_002_l/pointy_001_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/stinky_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/stinky_l/stinky_002_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/stinky_l/stinky_002_l/stinky_001_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/thumb_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_l/lowarm_l/hand_l/thumb_l/thumb_001_l
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pinky_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pinky_r/pinky_002_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pinky_r/pinky_002_r/pinky_001_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pointy_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pointy_r/pointy_002_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/pointy_r/pointy_002_r/pointy_001_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/stinky_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/stinky_r/stinky_002_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/stinky_r/stinky_002_r/stinky_001_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/thumb_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/spine/spine_002/spine_001/uparm_r/lowarm_r/hand_r/thumb_r/thumb_001_r
+    m_Weight: 1
+  - m_Path: Ezy_Unity_Armature/core/tail
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003/tail_004
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003/tail_004/tail_005
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003/tail_004/tail_005/tail_006
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003/tail_004/tail_005/tail_006/tail_007
+    m_Weight: 0
+  - m_Path: Ezy_Unity_Armature/core/tail/tail_001/tail_002/tail_003/tail_004/tail_005/tail_006/tail_007/tail_008
+    m_Weight: 0
+  - m_Path: Jacket
+    m_Weight: 1
+  - m_Path: Pants
+    m_Weight: 0
+  - m_Path: Plane
+    m_Weight: 0
+  - m_Path: Tail
+    m_Weight: 0
+  - m_Path: Teeth
+    m_Weight: 1
