@@ -9,13 +9,15 @@ public class EzyScript : MonoBehaviour
     int doubleJumpHash = Animator.StringToHash("DoubleJump");
     int fallingHash = Animator.StringToHash("Falls");
     int groundedHash = Animator.StringToHash("Grounded");
+    int jumpStartHash = Animator.StringToHash("JumpStart");
+    private int isGrounded = Animator.StringToHash("isGrounded");
     public float distToGrounded = 15.1f;
     public LayerMask ground;
 
-    private bool falls=false;
+    private bool falls = false;
     private bool Jumped = false; //checks if character jumps for doublejump animation
     private bool doublejumped = false;
-    public float raisingDistance;
+    public float raisingDistance = 0;
     private Vector3 oldPosition;
 
 
@@ -34,9 +36,9 @@ public class EzyScript : MonoBehaviour
 
     bool IsFalling()
     {
-        
         if ((transform.position.y - oldPosition.y) < -0.3)
         {
+            animator.SetBool(isGrounded, false);
             oldPosition = transform.position;
             if (!falls)
             {
@@ -57,6 +59,7 @@ public class EzyScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetBool(isGrounded, false);
             if (Jumped == false) //if character doesn't jump, it jumps
             {
                 animator.SetTrigger(jumpHash);
@@ -66,7 +69,7 @@ public class EzyScript : MonoBehaviour
             else //if character jumped, performed the doublejump animation
             {
                 animator.SetTrigger(doubleJumpHash);
-               
+
                 //falls = false;
             }
         }
@@ -76,29 +79,45 @@ public class EzyScript : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        System.Console.WriteLine(raisingDistance);
         float move = Input.GetAxis("Vertical");
+        raisingDistance = move;
         animator.SetFloat("Speed", move);
 
         if (!IsFalling())
         {
             jump();
-            
         }
         else
         {
             if (IsGrounded())
             {
-                if (falls || Jumped)
-                {
-                    animator.SetTrigger(groundedHash);
-                    falls = false;
-                }
-                Jumped = false;
-                
-            }
-           
+                // if (falls || Jumped)
+                animator.SetTrigger(groundedHash);
 
+                falls = false;
+                // }
+                Jumped = false;
+            }
         }
+
+        if (IsGrounded())
+        {
+            animator.SetBool(isGrounded, true);
+        }
+        else
+        {
+            animator.SetBool(isGrounded, false);
+        }
+
+
+        //var currentBaseState = animator.GetCurrentAnimatorStateInfo(0);
+        //if (/*IsGrounded() &&*/ currentBaseState.nameHash == jumpHash)
+        //{
+        //animator.SetTrigger(groundedHash);
+       
+        ////  falls = false;
+        //// }
+        //Jumped = false;
+        //}
     }
 }
