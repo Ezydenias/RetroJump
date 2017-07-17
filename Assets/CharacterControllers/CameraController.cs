@@ -16,6 +16,11 @@ public class CameraController : MonoBehaviour
         public float zoomSmooth = 10f;
         public float maxZoom = -2f;
         public float minZoom = -15f;
+        public bool smoothFollow = true;
+        public float smooth = 0.1f;
+
+        [HideInInspector] public float newDistance = -4; //set by zoom input
+        [HideInInspector] public float adjustmentDistance = -4;
     }
 
     [System.Serializable]
@@ -38,14 +43,26 @@ public class CameraController : MonoBehaviour
         public string ZOOM = "Mouse ScrollWheel";
     }
 
+    [System.Serializable]
+    public class DebugSettings
+    {
+        public bool drawDesiredCollisionLines = true;
+        public bool drawAdjustedCollisionLines = true;
+    }
+
     public PositionSettings position = new PositionSettings();
     public OrbitSettings orbit = new OrbitSettings();
     public InputSettings input = new InputSettings();
+    public DebugSettings debug = new DebugSettings();
+    public CollisionHandler collision = new CollisionHandler();
+
     public bool inverseX = false;
     public bool inverseY = false;
 
     Vector3 targetPosition = Vector3.zero;
     Vector3 destination = Vector3.zero;
+    Vector3 adjustedDestination = Vector3.zero;
+    Vector3 camVel = Vector3.zero;
     CharacterControl charController;
     float vOrbitInput, hOrbitInput, zoomInput, hOrbitSnapInput;
 
@@ -54,7 +71,11 @@ public class CameraController : MonoBehaviour
     {
         SetCameraTarget(target);
 
-        //MoveToTarget();
+        MoveToTarget();
+
+        collision.Initialize(Camera.main);
+        collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+        collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
     }
 
     public void SetCameraTarget(Transform t)
@@ -102,13 +123,63 @@ public class CameraController : MonoBehaviour
         LookAtTarget();
     }
 
+    void FixedUpdate()
+    {
+        collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+        collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
+
+        //draw debug lines
+        for (int i = 0; i < 5; i++)
+        {
+            if (debug.drawAdjustedCollisionLines)
+            {
+                Debug.DrawLine(targetPosition, collision.desiredCameraClipPoints[i], Color.white);
+            }
+            if (debug.drawDesiredCollisionLines)
+            {
+                Debug.DrawLine(targetPosition, collision.adjustedCameraClipPoints[i], Color.green);
+            }
+        }
+
+        collision.CheckColliding(targetPosition); //using raycast here
+        position.adjustmentDistance = collision.GetAdjustedDistanceWithRayFrom(targetPosition);
+    }
+
     void MoveToTarget()
     {
         targetPosition = target.position + position.targetPosOffset;
-        destination = Quaternion.Euler(orbit.xRotation, orbit.yRotation + target.eulerAngles.y, 0) * -Vector3.forward *
-                      position.distanceFromTarget;
+        destination = Quaternion.Euler(orbit.xRotation, orbit.yRotation + target.eulerAngles.y, 0) * -Vector3.forward * position.distanceFromTarget;
         destination += targetPosition;
         transform.position = destination;
+
+        if (collision.colliding)
+        {
+            adjustedDestination = Quaternion.Euler(orbit.xRotation, orbit.yRotation + target.eulerAngles.y, 0) * Vector3.forward * position.adjustmentDistance;
+            adjustedDestination += targetPosition;
+
+            if (position.smoothFollow)
+            {
+                //use smooth damp function
+                transform.position = Vector3.SmoothDamp(transform.position, adjustedDestination, ref camVel, position.smooth);
+            }
+            else
+            {
+                transform.position = adjustedDestination;
+            }
+        }
+        else
+        {
+
+            if (position.smoothFollow)
+            {
+                //use smooth damp function
+                transform.position = Vector3.SmoothDamp(transform.position, destination, ref camVel, position.smooth);
+            }
+            else
+            {
+                transform.position = destination;
+            }
+        }
     }
 
     void LookAtTarget()

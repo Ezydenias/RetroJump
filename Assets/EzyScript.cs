@@ -9,6 +9,7 @@ public class EzyScript : MonoBehaviour
     int doubleJumpHash = Animator.StringToHash("DoubleJump");
     int fallingHash = Animator.StringToHash("Falls");
     int groundedHash = Animator.StringToHash("Grounded");
+    int gunTriggerHash = Animator.StringToHash("ArmUnarm");
     int jumpStartHash = Animator.StringToHash("JumpStart");
     private int isGrounded = Animator.StringToHash("isGrounded");
     public float distToGrounded = 15.1f;
@@ -24,6 +25,7 @@ public class EzyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+       
         animator = GetComponent<Animator>();
         oldPosition = transform.position;
     }
@@ -83,6 +85,20 @@ public class EzyScript : MonoBehaviour
         raisingDistance = move;
         animator.SetFloat("Speed", move);
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetTrigger(gunTriggerHash);
+            if (animator.GetBool("Armed"))
+            {
+                animator.SetBool("Armed", false);
+            }
+            else
+            {
+                animator.SetBool("Armed",true);
+            }
+        }
+
+
         if (!IsFalling())
         {
             jump();
@@ -114,7 +130,7 @@ public class EzyScript : MonoBehaviour
         //if (/*IsGrounded() &&*/ currentBaseState.nameHash == jumpHash)
         //{
         //animator.SetTrigger(groundedHash);
-       
+
         ////  falls = false;
         //// }
         //Jumped = false;
