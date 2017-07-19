@@ -735,6 +735,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   raisingDistance: 0
+  hit: 0
 --- !u!114 &233887532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,16 +753,34 @@ MonoBehaviour:
     jumpVel: 24
     distToGrounded: 9.5
     doubleJumpDistToGrounded: 15
+    distToWall: 1
+    dampening: 0.01
+    superSpeed: 5
+    lowWall: {x: 0, y: -10, z: 0}
+    highWall: {x: 0, y: 10, z: 0}
     ground:
       serializedVersion: 2
       m_Bits: 4294967295
+    wall:
+      serializedVersion: 2
+      m_Bits: 0
   physSetting:
     downAccel: 0.75
+    groundFriction: 10
+    groundFrictionOverdrive: 100
+    airFriction: 100
+    pushVelocity: 10
+    lastPositionY: 0
+    pushXDistance: {x: 5, y: 0, z: 0}
+    pushZDistance: {x: 0, y: 0, z: 5}
   inputSetting:
     inputDelay: 0.1
     FORWARD_AXIS: Vertical
     TURN_AXIS: Horizontal
     JUMP_AXIS: Jump
+  debugInfo:
+    wallHitting: 0
+    fallVelocityShow: 0
   doubleJump: 1
 --- !u!136 &233887533
 CapsuleCollider:
@@ -2850,7 +2869,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d14944c1919cca044bb203ef014b482e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2934,7 +2953,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d14944c1919cca044bb203ef014b482e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3627,7 +3646,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d14944c1919cca044bb203ef014b482e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3881,7 +3900,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d14944c1919cca044bb203ef014b482e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
