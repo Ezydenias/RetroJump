@@ -5,6 +5,7 @@ using UnityEngine;
 public class EzyScript : MonoBehaviour
 {
     Animator animator;
+    Rigidbody rBody;
     int jumpHash = Animator.StringToHash("Jump");
     int doubleJumpHash = Animator.StringToHash("DoubleJump");
     int fallingHash = Animator.StringToHash("Falls");
@@ -21,12 +22,18 @@ public class EzyScript : MonoBehaviour
     public float raisingDistance = 0;
     private Vector3 oldPosition;
 
+    public bool hit=false;
 
     // Use this for initialization
     void Start()
     {
        
         animator = GetComponent<Animator>();
+        if (GetComponent<Rigidbody>())
+            rBody = GetComponent<Rigidbody>();
+        else
+            Debug.LogError("the Character needs a rigidbody, DODOING!!!");
+
         oldPosition = transform.position;
     }
 
@@ -82,8 +89,16 @@ public class EzyScript : MonoBehaviour
     void Update()
     {
         float move = Input.GetAxis("Vertical");
-        raisingDistance = move;
-        animator.SetFloat("Speed", move);
+        raisingDistance = (int)rBody.velocity.z;
+
+        if ((int) rBody.velocity.z != 0)
+        {
+            animator.SetFloat("Speed", move);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0.0f);
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
